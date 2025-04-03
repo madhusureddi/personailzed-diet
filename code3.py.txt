@@ -1,0 +1,20 @@
+from flask import Flask, render_template, request
+from model import get_diet_recommendation
+
+app = Flask(_name_)
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/recommend', methods=['POST'])
+def recommend():
+    age = int(request.form['age'])
+    weight = int(request.form['weight'])
+    activity = request.form['activity']
+    
+    recommendation = get_diet_recommendation(age, weight, activity)
+    return render_template('index.html', recommendation=recommendation)
+
+if _name_ == '_main_':
+    app.run(debug=True)

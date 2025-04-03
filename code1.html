@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Personalized Diet</title>
+    <link rel ="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Personalized Diet Recommendation</h1>
+    <form action="/recommend" method="POST">
+        <label>Age:</label>
+        <input type="number" name="age" required>
+
+        <label>Weight (kg):</label>
+        <input type="number" name="weight" required>
+
+        <label>Activity Level:</label>
+        <select name="activity">
+            <option value="low">Low</option>
+            <option value="moderate">Moderate</option>
+            <option value="high">High</option>
+        </select>
+
+        <button type="submit">Get Diet Plan</button>
+    </form>
+
+    <div id="result">{{ recommendation }}</div>
+</body>
+</html>
+

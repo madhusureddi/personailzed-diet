@@ -1,0 +1,16 @@
+def get_diet_recommendation(age, weight, activity):
+    if activity == "low":
+        calories = weight * 22
+    elif activity == "moderate":
+        calories = weight * 25
+    else:
+        calories = weight * 30
+
+    meals = {
+        "low": ["Oatmeal", "Grilled Chicken Salad", "Brown Rice"],
+        "moderate": ["Egg Omelette", "Quinoa Salad", "Grilled Fish"],
+        "high": ["Protein Shake", "Chicken Breast", "Sweet Potatoes"]
+    }
+
+    return f"Daily Calories: {calories} kcal. Suggested Meals: {', '.join(meals[activity])}"
+
